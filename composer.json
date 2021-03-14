@@ -7,5 +7,9 @@
             "email": "AlexeyShv992@gmail.com"
         }
     ],
-    "require": {}
+    "license": "MIT",
+    "require": {},
+    "bin": [
+        "bin/brain-games"
+    ]
 }
