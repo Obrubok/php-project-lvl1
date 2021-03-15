@@ -8,8 +8,6 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/chekout@v2
-
       - name: Run linter
         run: make lint
         env:
