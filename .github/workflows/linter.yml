@@ -1,0 +1,16 @@
+name: Linter
+
+on: push
+
+jobs:
+  lint:
+    name: Lint code
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/chekout@v2
+
+      - name: Run linter
+        run: make lint
+        env:
+          DEFAULT_BRANCH: main
