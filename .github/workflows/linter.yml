@@ -9,6 +9,8 @@ jobs:
 
     steps:
       - name: Run linter
-        run: make lint
+        run:
+          make install
+          make lint
         env:
           DEFAULT_BRANCH: main
