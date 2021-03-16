@@ -5,3 +5,6 @@
 
 Install and play
 [![asciicast](https://asciinema.org/a/s3M423DrwhJBBj7dDtevPdRPx.svg)](https://asciinema.org/a/s3M423DrwhJBBj7dDtevPdRPx)
+
+Brain-calc
+[![asciicast](https://asciinema.org/a/399779.svg)](https://asciinema.org/a/399779)
