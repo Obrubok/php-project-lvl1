@@ -15,9 +15,9 @@ function question($min, $max)
     return genRandNumber($min, $max);
 }
 
-function answer($num)
+function answer($question)
 {
-    return isEven($num);
+    return isEven($question);
 }
 
 function runEven()
