@@ -3,40 +3,43 @@
 namespace Brain\Games\Games\Calc;
 
 use function Brain\Games\Game\game;
+use function Brain\Games\Utils\Random\{genRandPairOfNumbers, getRandArrayElem};
+
+function calculate($num1, $num2, $operation)
+{
+    $result = match ($operation) {
+        '+' => $num1 + $num2,
+        '-' => $num1 - $num2,
+        '*' => $num1 * $num2
+    };
+    return (string)$result;
+}
+
+function question($min, $max)
+{
+    $operations = ['+', '-', '*'];
+    [$operand1, $operand2] = genRandPairOfNumbers($min, $max);
+    $operator = getRandArrayElem($operations);
+    $questionString = "{$operand1} {$operator} {$operand2}";
+    $question = [$operand1, $operand2, $operator];
+    return [$question, $questionString];
+}
+
+function answer($question)
+{
+    [$operand1, $operand2, $operation] = $question;
+    return calculate($operand1, $operand2, $operation);
+}
 
 function calc()
 {
-    $target = 'What is the result of the expression?';
-    $rounds = 3;
-    $calculate = function ($num1, $num2, string $operation) {
-        switch ($operation) {
-            case '+':
-                $result = $num1 + $num2;
-                break;
-            case '-':
-                $result = $num1 - $num2;
-                break;
-            case '*':
-                $result = $num1 * $num2;
-                break;
-        }
-
-        return (string)$result;
-    };
-    $getTask = function () use ($calculate) {
-        $operations = ['+', '-', '*'];
+    $target = "What is the result of the expression?";
+    $getTask = function () {
         $minNum = 1;
         $maxNum = 100;
-        $operand1 = random_int($minNum, $maxNum);
-        $operand2 = random_int($minNum, $maxNum);
-        $operation = $operations[array_rand($operations, 1)];
-        $question = "{$operand1} {$operation} {$operand2}";
-        $answer = $calculate($operand1, $operand2, $operation);
-
-        return [$question, $answer];
+        [$question, $questionString] = question($minNum, $maxNum);
+        $answer = answer($question);
+        return [$questionString, $answer];
     };
-    $getParams = function () use ($target, $getTask, $rounds) {
-        return [$target, $getTask, $rounds];
-    };
-    game($getParams);
+    game($getTask, $target);
 }
