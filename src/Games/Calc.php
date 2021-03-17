@@ -31,7 +31,7 @@ function answer($question)
     return calculate($operand1, $operand2, $operation);
 }
 
-function calc()
+function runCalc()
 {
     $target = "What is the result of the expression?";
     $getTask = function () {

@@ -20,7 +20,7 @@ function answer($num)
     return isEven($num);
 }
 
-function even()
+function runEven()
 {
     $target = 'Answer "yes" if the number is even, otherwise answer "no".';
     $getTask = function () {
