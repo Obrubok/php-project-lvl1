@@ -8,3 +8,6 @@ Install and play brain-even
 
 Brain-calc
 [![asciicast](https://asciinema.org/a/399779.svg)](https://asciinema.org/a/399779)
+
+Brain-gcd
+[![asciicast](https://asciinema.org/a/400130.svg)](https://asciinema.org/a/400130)
