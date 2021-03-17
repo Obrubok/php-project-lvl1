@@ -39,7 +39,7 @@ function game(callable $getTask, string $target)
         line("Question: {$question}");
         $playerAnswer = mb_strtolower(trim(prompt('Your answer: ', false, '')));
         if ($playerAnswer !== $answer) {
-            line("{$playerAnswer} is wrong answer ;(. Correct answer was '{$answer}'.");
+            line("'{$playerAnswer}' is wrong answer ;(. Correct answer was '{$answer}'.");
             line("Let's try again, {$name}");
             return;
         }
