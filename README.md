@@ -4,10 +4,13 @@
 ![Linter](https://github.com/Obrubok/php-project-lvl1/actions/workflows/linter.yml/badge.svg)
 
 Install and play brain-even
-[![asciicast](https://asciinema.org/a/s3M423DrwhJBBj7dDtevPdRPx.svg)](https://asciinema.org/a/s3M423DrwhJBBj7dDtevPdRPx)
+[![install & brain-even](https://asciinema.org/a/s3M423DrwhJBBj7dDtevPdRPx)](https://asciinema.org/a/s3M423DrwhJBBj7dDtevPdRPx)
 
 Brain-calc
-[![asciicast](https://asciinema.org/a/399779.svg)](https://asciinema.org/a/399779)
+[![brain-calc](https://asciinema.org/a/399779)](https://asciinema.org/a/399779)
 
 Brain-gcd
-[![asciicast](https://asciinema.org/a/400130.svg)](https://asciinema.org/a/400130)
+[![brain-gcd](https://asciinema.org/a/400130)](https://asciinema.org/a/400130)
+
+Brain-progression
+[![brain-progression](https://asciinema.org/a/400381)](https://asciinema.org/a/400381)

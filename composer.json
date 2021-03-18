@@ -21,16 +21,17 @@
         "bin/brain-games",
         "bin/brain-even",
         "bin/brain-calc",
-        "bin/brain-gcd"
+        "bin/brain-gcd",
+        "bin/brain-progression"
     ],
     "autoload": {
         "files": [
             "src/Cli.php",
             "src/Game.php",
-            "src/Utils/Random.php",
             "src/Games/Even.php",
             "src/Games/Calc.php",
-            "src/Games/GCD.php"
+            "src/Games/GCD.php",
+            "src/Games/Progression.php"
         ]
     }
 }
