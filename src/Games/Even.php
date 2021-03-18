@@ -6,14 +6,14 @@ use function Brain\Games\Game\game;
 
 const TARGET = 'Answer "yes" if the number is even, otherwise answer "no".';
 
-function isEven($number)
+function isEven(int $number): bool
 {
     return $number % 2 === 0;
 }
 
-function run()
+function run(): void
 {
-    $getTask = function () {
+    $getTask = function (): array {
         $question = random_int(1, 100);
         $answer = isEven($question) ? 'yes' : 'no';
         return [$question, $answer];

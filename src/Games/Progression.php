@@ -6,7 +6,7 @@ use function Brain\Games\Game\game;
 
 const TARGET = 'What number is missing in the progression?';
 
-function generateProgression($initial, $step, $length)
+function generateProgression(int $initial, int $step, int $length): array
 {
     $progression = [];
     for ($i = 0; $i < $length; $i++) {
@@ -15,16 +15,19 @@ function generateProgression($initial, $step, $length)
     return $progression;
 }
 
-function hideItemByKey($key, $progression, $replacement = '..')
+function hideItemByKey(int $key, array $progression, string $replacement = '..'): array
 {
+    if (!array_key_exists($key, $progression)) {
+        return $progression;
+    }
     $result = $progression;
     $result[$key] = $replacement;
     return $result;
 }
 
-function run()
+function run(): void
 {
-    $getTask = function () {
+    $getTask = function (): array {
         $initial = random_int(1, 20);
         $step = random_int(1, 10);
         $length = random_int(5, 15);

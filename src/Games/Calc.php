@@ -7,7 +7,7 @@ use function Brain\Games\Game\game;
 const TARGET = 'What is the result of the expression?';
 const OPERATORS = ['+', '-', '*'];
 
-function calculate($number1, $number2, $operation)
+function calculate(int $number1, int $number2, string $operation): int
 {
     return match ($operation) {
         '+' => $number1 + $number2,
@@ -16,9 +16,9 @@ function calculate($number1, $number2, $operation)
     };
 }
 
-function run()
+function run(): void
 {
-    $getTask = function () {
+    $getTask = function (): array {
         $number1 = random_int(1, 100);
         $number2 = random_int(1, 100);
         $operator = OPERATORS[array_rand(OPERATORS)];

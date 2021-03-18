@@ -6,7 +6,7 @@ use function Brain\Games\Game\game;
 
 const TARGET = 'Answer "yes" if the number is prime, otherwise answer "no".';
 
-function isPrime($number)
+function isPrime(int $number): bool
 {
     if ($number < 2) {
         return false;
@@ -19,9 +19,9 @@ function isPrime($number)
     return true;
 }
 
-function run()
+function run(): void
 {
-    $getTask = function () {
+    $getTask = function (): array {
         $question = random_int(1, 100);
         $answer = isPrime($question) ? 'yes' : 'no';
         return [$question, $answer];

@@ -6,14 +6,14 @@ use function Brain\Games\Game\game;
 
 const TARGET = 'Find the greatest common divisor of given numbers.';
 
-function gcd($number1, $number2)
+function gcd(int $number1, int $number2): int
 {
-    return ($number1 % $number2) ? gcd($number2, $number1 % $number2) : abs($number2);
+    return ($number1 % $number2 !== 0) ? gcd($number2, $number1 % $number2) : abs($number2);
 }
 
-function run()
+function run(): void
 {
-    $getTask = function () {
+    $getTask = function (): array {
         $number1 = random_int(1, 100);
         $number2 = random_int(1, 100);
         $question = "{$number1} {$number2}";
