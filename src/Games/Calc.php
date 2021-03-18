@@ -12,7 +12,8 @@ function calculate(int $number1, int $number2, string $operation): int
     return match ($operation) {
         '+' => $number1 + $number2,
         '-' => $number1 - $number2,
-        '*' => $number1 * $number2
+        '*' => $number1 * $number2,
+    default => throw new \UnexpectedValueException("Unexpected value: {$operation}")
     };
 }
 

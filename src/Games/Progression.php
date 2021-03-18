@@ -32,7 +32,7 @@ function run(): void
         $step = random_int(1, 10);
         $length = random_int(5, 15);
         $progression = generateProgression($initial, $step, $length);
-        $hiddenItemKey = array_rand($progression, 1);
+        $hiddenItemKey = (int)array_rand($progression, 1);
         $question = implode(' ', hideItemByKey($hiddenItemKey, $progression));
         $answer = (string)$progression[$hiddenItemKey];
         return [$question, $answer];
