@@ -3,36 +3,22 @@
 namespace Brain\Games\Games\GCD;
 
 use function Brain\Games\Game\game;
-use function Brain\Games\Utils\Random\genRandPairOfNumbers;
 
-function gcd($num1, $num2)
+const TARGET = 'Find the greatest common divisor of given numbers.';
+
+function gcd($number1, $number2)
 {
-    return ($num1 % $num2) ? gcd($num2, $num1 % $num2) : (string)abs($num2);
+    return ($number1 % $number2) ? gcd($number2, $number1 % $number2) : abs($number2);
 }
 
-function question($min, $max)
+function run()
 {
-    [$num1, $num2] = genRandPairOfNumbers($min, $max);
-    $questionString = "{$num1} {$num2}";
-    $question = [$num1, $num2];
-    return [$question, $questionString];
-}
-
-function answer($question)
-{
-    [$num1, $num2] = $question;
-    return gcd($num1, $num2);
-}
-
-function runGcd()
-{
-    $target = "Find the greatest common divisor of given numbers.";
     $getTask = function () {
-        $minNum = 1;
-        $maxNum = 100;
-        [$question, $questionString] = question($minNum, $maxNum);
-        $answer = answer($question);
-        return [$questionString, $answer];
+        $number1 = random_int(1, 100);
+        $number2 = random_int(1, 100);
+        $question = "{$number1} {$number2}";
+        $answer = (string)gcd($number1, $number2);
+        return [$question, $answer];
     };
-    game($getTask, $target);
+    game($getTask, TARGET);
 }

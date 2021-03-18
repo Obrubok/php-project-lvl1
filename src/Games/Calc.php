@@ -3,43 +3,28 @@
 namespace Brain\Games\Games\Calc;
 
 use function Brain\Games\Game\game;
-use function Brain\Games\Utils\Random\{genRandPairOfNumbers, getRandArrayElem};
 
-function calculate($num1, $num2, $operation)
+const TARGET = 'What is the result of the expression?';
+const OPERATORS = ['+', '-', '*'];
+
+function calculate($number1, $number2, $operation)
 {
-    $result = match ($operation) {
-        '+' => $num1 + $num2,
-        '-' => $num1 - $num2,
-        '*' => $num1 * $num2
+    return match ($operation) {
+        '+' => $number1 + $number2,
+        '-' => $number1 - $number2,
+        '*' => $number1 * $number2
     };
-    return (string)$result;
 }
 
-function question($min, $max)
+function run()
 {
-    $operations = ['+', '-', '*'];
-    [$operand1, $operand2] = genRandPairOfNumbers($min, $max);
-    $operator = getRandArrayElem($operations);
-    $questionString = "{$operand1} {$operator} {$operand2}";
-    $question = [$operand1, $operand2, $operator];
-    return [$question, $questionString];
-}
-
-function answer($question)
-{
-    [$operand1, $operand2, $operation] = $question;
-    return calculate($operand1, $operand2, $operation);
-}
-
-function runCalc()
-{
-    $target = "What is the result of the expression?";
     $getTask = function () {
-        $minNum = 1;
-        $maxNum = 100;
-        [$question, $questionString] = question($minNum, $maxNum);
-        $answer = answer($question);
-        return [$questionString, $answer];
+        $number1 = random_int(1, 100);
+        $number2 = random_int(1, 100);
+        $operator = OPERATORS[array_rand(OPERATORS)];
+        $question = "{$number1} {$operator} {$number2}";
+        $answer = (string)calculate($number1, $number2, $operator);
+        return [$question, $answer];
     };
-    game($getTask, $target);
+    game($getTask, TARGET);
 }

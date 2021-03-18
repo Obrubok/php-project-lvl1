@@ -3,32 +3,20 @@
 namespace Brain\Games\Games\Even;
 
 use function Brain\Games\Game\game;
-use function Brain\Games\Utils\Random\genRandNumber;
 
-function isEven($num)
+const TARGET = 'Answer "yes" if the number is even, otherwise answer "no".';
+
+function isEven($number)
 {
-    return $num % 2 === 0;
+    return $number % 2 === 0;
 }
 
-function question($min, $max)
+function run()
 {
-    return genRandNumber($min, $max);
-}
-
-function answer($question)
-{
-    return isEven($question);
-}
-
-function runEven()
-{
-    $target = 'Answer "yes" if the number is even, otherwise answer "no".';
     $getTask = function () {
-        $minNum = 1;
-        $maxNum = 100;
-        $question = question($minNum, $maxNum);
-        $answer = answer($question) ? 'yes' : 'no';
+        $question = random_int(1, 100);
+        $answer = isEven($question) ? 'yes' : 'no';
         return [$question, $answer];
     };
-    game($getTask, $target);
+    game($getTask, TARGET);
 }
